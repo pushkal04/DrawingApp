@@ -57,6 +57,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun paintClicked(view: View){
+        if(view !== mImageButtonCurrentPaint)
+        {
+            val imageButton = view as ImageButton
+
+            val colorTag = imageButton.tag.toString()
+            drawing_view.setColor(colorTag)
+            imageButton.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.palette_pressed)
+            )
+            mImageButtonCurrentPaint!!.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.palette_normal)
+            )
+            mImageButtonCurrentPaint = view
+        }
+
+
 
     }
 
